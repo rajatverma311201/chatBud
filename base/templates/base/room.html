@@ -1,5 +1,53 @@
 {%extends 'main.html'%} {%block content%}
+
+<style>
+  .room-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+</style>
+
 <h1>room page</h1>
-<h2>{{room.name}}</h2>
-<h3>{{room.description}}</h3>
+
+<div class="room-container">
+  <div>
+    <h2>{{room.name}}</h2>
+    <h3>{{room.description}}</h3>
+    <hr />
+
+    {% for message in room_messages %}
+
+    <div>
+      {% if request.user == message.user %}
+      <a href="{% url 'deleteMessage' message.id %}"><button>Delete</button></a>
+      {% endif %}
+      <h4>@{{message.user}} - {{message.created|timesince}} ago</h4>
+      <p>{{message.body}}</p>
+    </div>
+    <hr />
+
+    {% endfor %}
+
+    <form action="" method="POST">
+      {%csrf_token%}
+      <input
+        type="text"
+        name="body"
+        id=""
+        placeholder="Write Your Message here..."
+      />
+    </form>
+  </div>
+
+  <div>
+    <h3>Participants</h3>
+    <hr />
+    {% for participant in participants %}
+
+    <p>{{participant}}</p>
+
+    {%endfor%}
+  </div>
+</div>
+
 {%endblock%}
