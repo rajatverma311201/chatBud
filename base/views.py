@@ -22,8 +22,10 @@ def homePage(request):
         Q(description__icontains=q)
     )
     topics = Topic.objects.all()
+    room_messages = Message.objects.all()[:4]
 
-    context = {'rooms': rooms, 'topics': topics}
+    context = {'rooms': rooms, 'topics': topics,
+               'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
 
@@ -152,3 +154,13 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
+
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    rooms = user.room_set.all()
+    room_messages = user.message_set.all()
+    topics = Topic.objects.all()
+    context = {'user': user, 'rooms': rooms,
+               'room_messages': room_messages, 'topics': topics}
+    return render(request, 'base/profile.html', context)
