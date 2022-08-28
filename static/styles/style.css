@@ -50,6 +50,7 @@ body {
   color: var(--color-light-gray);
   background-color: var(--color-bg);
   min-height: 100vh;
+  padding-bottom: 5rem;
 }
 
 img {
@@ -426,7 +427,7 @@ a {
   max-width: 48rem;
   min-height: 40rem;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -46%);
   background-color: var(--color-dark);
@@ -964,7 +965,7 @@ a {
 }
 
 .room__header {
-  max-height: 30vh;
+  max-height: 40vh;
   overflow-y: auto;
   position: absolute;
   width: 95%;
@@ -1098,7 +1099,7 @@ a {
 }
 
 .room__message {
-  padding: 2rem;
+  padding: 0;
   position: absolute;
   z-index: 111;
   bottom: 0;
@@ -1116,7 +1117,7 @@ a {
   border-radius: 0.7rem;
   height: 4.5rem;
   width: 100%;
-  margin-top: -1rem;
+  /* margin-top: rem; */
   padding: 1.2rem;
   font-size: 1.4rem;
   font-weight: 500;
