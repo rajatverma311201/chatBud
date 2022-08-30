@@ -44,6 +44,13 @@
 
 // Menu
 
+const createTopic = document.querySelector(".create-topic");
+const createTopicField = document.querySelector(".create-topic-field");
+
+createTopic.addEventListener("click", () => {
+  createTopicField.classList.remove("hidden-topic");
+});
+
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const dropdownButton = document.querySelector(".dropdown-button");
 

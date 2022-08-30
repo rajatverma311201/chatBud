@@ -2,7 +2,7 @@
 <header class="header header--loggedIn">
   <div class="container">
     <a href="{% url 'home' %}" class="header__logo">
-      <img src="{% static 'images/logo.svg' %}" />
+      <img src="{% static 'images/logo.png' %}" />
       <h1>ChatBud</h1>
     </a>
     <form class="header__search" method="GET" action="{% url 'home' %}">
@@ -28,7 +28,7 @@
       <div class="header__user">
         <a href="{%url 'userProfile' user.id%}">
           <div class="avatar avatar--medium active">
-            <img src="{{request.user.avatar.url}}" />
+            <img src="{% static 'images/user-img.png' %}" />
           </div>
           <p>
             {{request.user.username}} <span>@{{request.user.username}}</span>
@@ -51,7 +51,6 @@
 
       <!-- Not Logged In -->
       <a href="{% url 'login' %}">
-        <img src="{% static 'images/avatar.svg' %}" />
         <p>Login</p>
       </a>
       {% endif %}

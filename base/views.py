@@ -24,6 +24,7 @@ def homePage(request):
     topics = Topic.objects.all()
     # print(topics)
     room_messages = Message.objects.all()[:4]
+    print(room_messages)
 
     context = {'rooms': rooms, 'topics': topics,
                'room_messages': room_messages}
@@ -66,6 +67,7 @@ def createRoom(request):
         # if form.is_valid():
         #     print("hello")
         #     form.save()
+
         room = Room.objects.create(
             host=request.user,
             name=request.POST.get('name'),
@@ -76,6 +78,17 @@ def createRoom(request):
 
     context = {'form': form, 'topics': topics}
     return render(request, 'base/room_form.html', context)
+
+
+@login_required(login_url='/login')
+def createTopic(request):
+    if request.method == "POST":
+        topic = request.POST.get('topic').strip()
+        if topic != "":
+            Topic.objects.create(
+                name=topic
+            )
+        return redirect('home')
 
 
 @login_required(login_url='/login')

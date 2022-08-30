@@ -1,6 +1,4 @@
-{% extends 'main.html' %}
-
-{% block content %}
+{% extends 'main.html' %} {% block content %} {% load static %}
 <main class="profile-page layout layout--3">
   <div class="container">
     <!-- Topics Start -->
@@ -12,33 +10,30 @@
       <div class="profile">
         <div class="profile__avatar">
           <div class="avatar avatar--large active">
-            <img src="{{user.avatar.url}}" />
+            <img src="{% static 'images/user-img.png' %}" />
           </div>
         </div>
         <div class="profile__info">
           <h3>{{user.name}}</h3>
           <p>@{{user.username}}</p>
           {% if request.user == user %}
-          <a href="{% url 'updateUser' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          <a href="{% url 'updateUser' %}" class="btn btn--main btn--pill"
+            >Edit Profile</a
+          >
           {% endif %}
         </div>
         <div class="profile__about">
           <h3>About</h3>
-          <p>
-            {{user.bio}}
-          </p>
+          <p>{{user.bio}}</p>
         </div>
       </div>
 
       <div class="roomList__header">
         <div>
-          <h2>Study Rooms Hosted by dennis_ivy</a>
-          </h2>
+          <h2>Study Rooms Hosted by dennis_ivy</h2>
         </div>
       </div>
       {% include 'base/feed_component.html' %}
-
-
     </div>
     <!-- Room List End -->
 

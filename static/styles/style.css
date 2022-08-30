@@ -30,6 +30,19 @@
 html {
   font-size: 56.25%;
 }
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark-medium);
+  border-radius: 10px;
+  /* outline: 1px solid slategrey; */
+}
 
 @media only screen and (min-width: 1200px) {
   html {
@@ -284,8 +297,8 @@ a {
 }
 
 .header__logo > img {
-  height: 3.2rem;
-  width: 3.2rem;
+  height: 5rem;
+  width: 5rem;
 }
 
 .header__logo > h1 {
@@ -565,6 +578,7 @@ a {
   text-transform: uppercase;
   font-weight: 500;
   color: var(--color-dark-light);
+  margin-top: 1rem;
 }
 
 .topics__list {
@@ -619,6 +633,25 @@ a {
 /*==============================
 =>  Room List
 ================================*/
+.roomList {
+  overflow-y: auto;
+  height: 110vh;
+  padding-right: 10px;
+}
+
+.roomList::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+.roomList::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.roomList::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark-medium);
+  border-radius: 10px;
+  /* outline: 1px solid slategrey; */
+}
 
 .roomList__header {
   display: flex;
@@ -1163,4 +1196,33 @@ a {
   font-weight: 500;
   color: var(--color-main);
   font-weight: 1.4rem;
+}
+
+.hidden-topic {
+  display: none;
+}
+.create-topic-field {
+  padding: 5px 0;
+  text-align: left;
+}
+.create-topic-field input {
+  margin: 5px 0;
+  text-align: left;
+}
+
+.create-topic-field input[type="text"] {
+  /* width: 2.5rem; */
+  background: var(--color-dark);
+  border: none;
+  outline: none;
+  color: var(--color-light);
+  height: 25px;
+  padding-left: 10px;
+}
+
+.create-topic-field input[type="submit"] {
+  padding: 5px 10px;
+  background-color: var(--color-dark);
+  /* border: 2px solid var(--color-main); */
+  color: white;
 }
