@@ -23,8 +23,7 @@ def homePage(request):
     )
     topics = Topic.objects.all()
     # print(topics)
-    room_messages = Message.objects.all()[:4]
-    print(room_messages)
+    room_messages = Message.objects.all().order_by('-created')[:4]
 
     context = {'rooms': rooms, 'topics': topics,
                'room_messages': room_messages}
